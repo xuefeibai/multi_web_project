@@ -1,0 +1,36 @@
+{
+  "name": "multi-pro-icon",
+  "version": "1.0.0",
+  "description": "Multi Pro 图标字体库，支持CSS变量生成",
+  "main": "iconfont-css-variables.js",
+  "scripts": {
+    "build": "node iconfont-css-variables.js",
+    "demo": "open demo_index.html"
+  },
+  "keywords": [
+    "iconfont",
+    "icons",
+    "css-variables",
+    "web-components",
+    "multi-pro"
+  ],
+  "author": "xuefeibai",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xuefeibai/multi_web_project.git",
+    "directory": "multi-pro-icon"
+  },
+  "files": [
+    "iconfont.css",
+    "iconfont.js",
+    "iconfont.json",
+    "iconfont.ttf",
+    "iconfont.woff",
+    "iconfont.woff2",
+    "iconfont-css-variables.js",
+    "demo_index.html",
+    "demo.css",
+    "README.md"
+  ]
+}
