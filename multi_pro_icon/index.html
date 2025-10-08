@@ -4,14 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi Pro Icon - 图标字体演示</title>
-    <meta http-equiv="refresh" content="0; url=demo_index.html">
-    <script>
-        // 自动重定向到demo_index.html
-        window.location.href = 'demo_index.html';
-    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+        }
+        
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .feature-list {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        
+        .feature-list li {
+            margin: 10px 0;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <p>正在跳转到图标字体演示页面...</p>
-    <p>如果页面没有自动跳转，请 <a href="demo_index.html">点击这里</a>。</p>
+    <div class="container">
+        <h1>Multi Pro Icon 图标字体库</h1>
+        
+        <p class="description">
+            这是一个功能丰富的图标字体库，包含多种实用的图标，支持多种使用方式。
+        </p>
+        
+        <div class="nav-links">
+            <a href="demo_index.html" class="nav-link">传统演示页面</a>
+            <a href="demo/index.html" class="nav-link">Web Component 演示</a>
+        </div>
+        
+        <div class="feature-list">
+            <h3>功能特性：</h3>
+            <ul>
+                <li><strong>Unicode 引用</strong> - 使用字体编码直接引用图标</li>
+                <li><strong>Font Class 引用</strong> - 使用 CSS 类名引用图标</li>
+                <li><strong>Symbol 引用</strong> - 使用 SVG 符号引用图标（支持多色）</li>
+                <li><strong>Web Component</strong> - 现代化的自定义元素组件</li>
+            </ul>
+        </div>
+        
+        <p class="description">
+            选择上面的链接开始探索不同的图标使用方式！
+        </p>
+    </div>
 </body>
 </html>

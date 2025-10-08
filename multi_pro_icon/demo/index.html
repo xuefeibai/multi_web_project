@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IconFont Web Component 演示</title>
+    <link rel="stylesheet" href="../iconfont.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .demo-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+        }
+        
+        .demo-section h2 {
+            color: #555;
+            margin-top: 0;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+        
+        .icon-item:hover {
+            background: #e9e9e9;
+            transform: translateY(-2px);
+        }
+        
+        .icon-name {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            word-break: break-word;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .interactive-demo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        .live-icon {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回主页面</a>
+        
+        <h1>IconFont Web Component 演示</h1>
+        
+        <div class="demo-section">
+            <h2>基本用法</h2>
+            <p>使用 <code><icon-font></code> 组件显示图标：</p>
+            
+            <div class="code-example">
+                <icon-font name="fanhui"></icon-font><br>
+                <icon-font name="fenxiang"></icon-font><br>
+                <icon-font name="bianji"></icon-font>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin: 15px 0;">
+                <icon-font name="fanhui"></icon-font>
+                <icon-font name="fenxiang"></icon-font>
+                <icon-font name="bianji"></icon-font>
+                <icon-font name="xihuan"></icon-font>
+                <icon-font name="gengduo"></icon-font>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>交互式演示</h2>
+            <p>选择下拉框中的图标名称，图标将立即更新：</p>
+            
+            <div class="interactive-demo">
+                <select id="iconSelector" onchange="changeIcon()">
+                    <option value="fanhui">返回</option>
+                    <option value="fenxiang">分享</option>
+                    <option value="bianji">编辑</option>
+                    <option value="xihuan">喜欢</option>
+                    <option value="gengduo">更多</option>
+                    <option value="dingwei">定位</option>
+                    <option value="shangchuantupian">上传图片</option>
+                </select>
+                
+                <icon-font id="liveIcon" name="fanhui" class="live-icon"></icon-font>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>所有可用图标</h2>
+            <p>点击图标查看对应的名称：</p>
+            
+            <div class="icon-grid" id="iconGrid">
+                <!-- 图标将通过JavaScript动态生成 -->
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>复杂组件演示 - IconButton</h2>
+            <p>这是一个使用 IconFont 组件的复杂按钮组件，支持多种样式和交互效果：</p>
+            
+            <div class="code-example">
+                <icon-button icon="fenxiang" text="分享" variant="primary"></icon-button><br>
+                <icon-button icon="xihuan" text="喜欢" variant="success"></icon-button><br>
+                <icon-button icon="jubao" text="举报" variant="danger"></icon-button>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+                <icon-button icon="fenxiang" text="分享" variant="primary"></icon-button>
+                <icon-button icon="xihuan" text="喜欢" variant="success"></icon-button>
+                <icon-button icon="jubao" text="举报" variant="danger"></icon-button>
+                <icon-button icon="bianji" text="编辑" variant="warning"></icon-button>
+                <icon-button icon="shangchuantupian" text="上传" variant="outline"></icon-button>
+                <icon-button icon="dingwei" text="定位" variant="secondary"></icon-button>
+            </div>
+            
+            <h3>不同尺寸</h3>
+            <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+                <icon-button icon="fanhui" text="返回" variant="primary" size="small"></icon-button>
+                <icon-button icon="fanhui" text="返回" variant="primary" size="medium"></icon-button>
+                <icon-button icon="fanhui" text="返回" variant="primary" size="large"></icon-button>
+            </div>
+            
+            <h3>禁用状态</h3>
+            <div style="display: flex; gap: 15px; margin: 15px 0;">
+                <icon-button icon="fenxiang" text="已分享" variant="primary" disabled></icon-button>
+                <icon-button icon="xihuan" text="已喜欢" variant="success" disabled></icon-button>
+            </div>
+            
+            <h3>交互演示</h3>
+            <div style="display: flex; gap: 15px; margin: 15px 0;">
+                <icon-button id="loadingBtn" icon="shangchuantupian" text="上传文件" variant="primary"></icon-button>
+                <icon-button id="dynamicBtn" icon="fenxiang" text="分享动态" variant="outline"></icon-button>
+            </div>
+            
+            <div id="buttonEvents" style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 4px; font-size: 14px;">
+                按钮事件日志将显示在这里...
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>API 说明</h2>
+            <div class="code-example">
+                // 设置图标<br>
+                element.setIcon('fanhui');<br><br>
+                
+                // 获取当前图标名称<br>
+                const iconName = element.getIcon();<br><br>
+                
+                // 通过属性设置<br>
+                <icon-font name="fanhui"></icon-font>
+            </div>
+        </div>
+    </div>
+
+    <script src="iconfont-component.js"></script>
+    <script src="icon-button-component.js"></script>
+    <script>
+        // 交互式演示功能
+        function changeIcon() {
+            const selector = document.getElementById('iconSelector');
+            const liveIcon = document.getElementById('liveIcon');
+            liveIcon.setIcon(selector.value);
+        }
+        
+        // 生成所有图标网格
+        function generateIconGrid() {
+            const iconGrid = document.getElementById('iconGrid');
+            const icons = [
+                'jubao', 'anquanbaozhang', 'xiaoxi-zhihui', 'xihuan', 'gengduo',
+                'shouye-zhihui', 'gerenzhongxin-zhihui', 'kandian-zhihui', 'fanhui',
+                'kuaijiezhifu', 'zhifudingjin', 'kaitongfuwu', 'qianshuxieyi', 'dianpu',
+                'guanzhu-zhihui', 'tijiaoyanzi', 'a-dingwei2', 'zhuanruzijin', 'yanziwancheng',
+                'fenxiang', 'zaixianyanzi', 'shangchuantupian', 'dingwei', 'zaixianxuanfang',
+                'tianxuangouren', 'a-fenxiang2', 'baohuhaoma', 'a-xiala2', 'zhuanshuguwen',
+                'bianji', 'jinru', 'xiala', 'tishi', 'chuang', 'tingchechang', 'xiuxishi',
+                'yigui', 'xiuxianqu', 'shuzhuo', 'zhinengmensuo', 'kuandai', 'qiantai',
+                'shuba', 'xiyifang', 'kongzhonghuayuan', 'dianshiji', 'weibolu', 'dianti',
+                'tianranqi', 'diancilu', 'reshuiqi', 'anquanjiankong', 'DIYcanba', 'chugui',
+                'ditie', 'yingyinqu', 'canzhuo', 'chouyouyanji', 'kongtiao', 'zhuoqiuqu',
+                'nuanqi', 'shafa', 'jianshenfang', 'bianlidian', 'huikequ', 'a-24Hanbao',
+                'shequhuodong', 'bingxiang', 'xiyiji'
+            ];
+            
+            const iconNames = {
+                'jubao': '举报',
+                'anquanbaozhang': '安全保障',
+                'xiaoxi-zhihui': '消息-置灰',
+                'xihuan': '喜欢',
+                'gengduo': '更多',
+                'shouye-zhihui': '首页-置灰',
+                'gerenzhongxin-zhihui': '个人中心-置灰',
+                'kandian-zhihui': '看点-置灰',
+                'fanhui': '返回',
+                'kuaijiezhifu': '快捷支付',
+                'zhifudingjin': '支付订金',
+                'kaitongfuwu': '开通服务',
+                'qianshuxieyi': '签署协议',
+                'dianpu': '店铺',
+                'guanzhu-zhihui': '关注-置灰',
+                'tijiaoyanzi': '提交验资',
+                'a-dingwei2': '定位 2',
+                'zhuanruzijin': '转入资金',
+                'yanziwancheng': '验资完成',
+                'fenxiang': '分享',
+                'zaixianyanzi': '在线验资',
+                'shangchuantupian': '上传图片',
+                'dingwei': '定位',
+                'zaixianxuanfang': '在线选房',
+                'tianxuangouren': '填选购人',
+                'a-fenxiang2': '分享 2',
+                'baohuhaoma': '保护号码',
+                'a-xiala2': '下拉',
+                'zhuanshuguwen': '专属顾问',
+                'bianji': '编辑',
+                'jinru': '进入',
+                'xiala': '下拉',
+                'tishi': '提示',
+                'chuang': '床',
+                'tingchechang': '停车场',
+                'xiuxishi': '休息室',
+                'yigui': '衣柜',
+                'xiuxianqu': '休闲区',
+                'shuzhuo': '书桌',
+                'zhinengmensuo': '智能门锁',
+                'kuandai': '宽带',
+                'qiantai': '前台',
+                'shuba': '书吧',
+                'xiyifang': '洗衣房',
+                'kongzhonghuayuan': '空中花园',
+                'dianshiji': '电视机',
+                'weibolu': '微波炉',
+                'dianti': '电梯',
+                'tianranqi': '天然气',
+                'diancilu': '电磁炉',
+                'reshuiqi': '热水器',
+                'anquanjiankong': '安全监控',
+                'DIYcanba': 'DIY餐吧',
+                'chugui': '橱柜',
+                'ditie': '地铁',
+                'yingyinqu': '影音区',
+                'canzhuo': '餐桌',
+                'chouyouyanji': '抽油烟机',
+                'kongtiao': '空调',
+                'zhuoqiuqu': '桌球区',
+                'nuanqi': '暖气',
+                'shafa': '沙发',
+                'jianshenfang': '健身房',
+                'bianlidian': '便利店',
+                'huikequ': '会客区',
+                'a-24Hanbao': '24H安保',
+                'shequhuodong': '社区活动',
+                'bingxiang': '冰箱',
+                'xiyiji': '洗衣机'
+            };
+            
+            icons.forEach(icon => {
+                const item = document.createElement('div');
+                item.className = 'icon-item';
+                item.innerHTML = `
+                    <icon-font name="${icon}" style="font-size: 24px;"></icon-font>
+                    <div class="icon-name">${iconNames[icon] || icon}</div>
+                `;
+                item.onclick = () => {
+                    alert(`图标名称: ${icon}\n中文名称: ${iconNames[icon] || '未知'}`);
+                };
+                iconGrid.appendChild(item);
+            });
+        }
+        
+        // IconButton 交互功能
+        function setupIconButtonDemo() {
+            const loadingBtn = document.getElementById('loadingBtn');
+            const dynamicBtn = document.getElementById('dynamicBtn');
+            const eventsLog = document.getElementById('buttonEvents');
+            
+            // 加载按钮演示
+            if (loadingBtn) {
+                loadingBtn.addEventListener('icon-button-click', (e) => {
+                    logEvent(`点击了加载按钮: ${e.detail.text}`);
+                    
+                    // 模拟加载状态
+                    loadingBtn.setLoading(true);
+                    setTimeout(() => {
+                        loadingBtn.setLoading(false);
+                        logEvent('上传完成！');
+                    }, 2000);
+                });
+            }
+            
+            // 动态按钮演示
+            if (dynamicBtn) {
+                let clickCount = 0;
+                
+                dynamicBtn.addEventListener('icon-button-click', (e) => {
+                    clickCount++;
+                    logEvent(`点击了动态按钮: ${e.detail.text} (第${clickCount}次)`);
+                    
+                    // 动态改变按钮状态
+                    if (clickCount % 3 === 0) {
+                        dynamicBtn.setIcon('xihuan');
+                        dynamicBtn.setText('已喜欢');
+                        dynamicBtn.setVariant('success');
+                    } else if (clickCount % 3 === 1) {
+                        dynamicBtn.setIcon('fenxiang');
+                        dynamicBtn.setText('分享动态');
+                        dynamicBtn.setVariant('outline');
+                    } else {
+                        dynamicBtn.setIcon('jubao');
+                        dynamicBtn.setText('举报内容');
+                        dynamicBtn.setVariant('danger');
+                    }
+                });
+            }
+            
+            // 为所有按钮添加事件监听
+            document.addEventListener('icon-button-click', (e) => {
+                logEvent(`按钮点击: ${e.detail.text} (图标: ${e.detail.icon}, 样式: ${e.detail.variant})`);
+            });
+        }
+        
+        function logEvent(message) {
+            const eventsLog = document.getElementById('buttonEvents');
+            if (eventsLog) {
+                const timestamp = new Date().toLocaleTimeString();
+                eventsLog.innerHTML = `<div>[${timestamp}] ${message}</div>` + eventsLog.innerHTML;
+            }
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            generateIconGrid();
+            setupIconButtonDemo();
+        });
+    </script>
+</body>
+</html>
