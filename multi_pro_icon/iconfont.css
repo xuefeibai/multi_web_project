@@ -1,11 +1,8 @@
 @font-face {
   font-family: "multi-pro-iconfont"; /* Project id 5035839 */
-  src: url('iconfont.woff2?t=1759921432988') format('woff2'),
-       url('iconfont.woff?t=1759921432988') format('woff'),
-       url('iconfont.ttf?t=1759921432988') format('truetype');
-  font-display: swap; /* 优化字体加载显示 */
-  font-weight: normal;
-  font-style: normal;
+  src: url('iconfont.woff2?t=1759933112875') format('woff2'),
+       url('iconfont.woff?t=1759933112875') format('woff'),
+       url('iconfont.ttf?t=1759933112875') format('truetype');
 }
 
 .multi-pro-iconfont {
@@ -37,7 +34,6 @@
   --multi-pro-icon-a-dingwei2: \e62d;
   --multi-pro-icon-zhuanruzijin: \e62e;
   --multi-pro-icon-yanziwancheng: \e62f;
-  --multi-pro-icon-guanbi: \e630;
   --multi-pro-icon-fenxiang: \e631;
   --multi-pro-icon-zaixianyanzi: \e632;
   --multi-pro-icon-shangchuantupian: \e633;
@@ -164,10 +160,6 @@
 
 .multi-pro-icon-yanziwancheng:before {
   content: "\e62f";
-}
-
-.multi-pro-icon-guanbi:before {
-  content: "\e630";
 }
 
 .multi-pro-icon-fenxiang:before {
