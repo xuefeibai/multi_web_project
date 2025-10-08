@@ -1,4 +1,4 @@
-name: Deploy multi_pro_icon to GitHub Pages
+name: Deploy multi_pro_icon static site
 
 on:
   push:
@@ -7,25 +7,13 @@ on:
       - 'multi_pro_icon/**'
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
@@ -35,7 +23,4 @@ jobs:
           path: './multi_pro_icon'
           
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          enablement: true
